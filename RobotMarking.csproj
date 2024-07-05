@@ -1,0 +1,89 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseWindowsForms>True</UseWindowsForms>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Platforms>AnyCPU;x64;x86</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Img\00\contact.png" />
+    <None Remove="Resources\Img\00\Device.png" />
+    <None Remove="Resources\Img\00\laser.png" />
+    <None Remove="Resources\Img\00\main.png" />
+    <None Remove="Resources\Img\00\robot.png" />
+    <None Remove="Resources\Img\Alarm.png" />
+    <None Remove="Resources\Img\alpha.png" />
+    <None Remove="Resources\Img\arrow.png" />
+    <None Remove="Resources\Img\circle.png" />
+    <None Remove="Resources\Img\code.png" />
+    <None Remove="Resources\Img\line.png" />
+    <None Remove="Resources\Img\rect.png" />
+    <None Remove="Resources\Img\robot.png" />
+    <None Remove="Resources\Img\v2_sfmu60.ico" />
+    <None Remove="Resources\Img\v2_sfmu60.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Img\00\contact.png" />
+    <Resource Include="Resources\Img\00\Device.png" />
+    <Resource Include="Resources\Img\00\laser.png" />
+    <Resource Include="Resources\Img\00\main.png" />
+    <Resource Include="Resources\Img\00\robot.png" />
+    <Resource Include="Resources\Img\Alarm.png" />
+    <Resource Include="Resources\Img\alpha.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Img\arrow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Img\circle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Img\code.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Img\line.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Img\rect.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Img\robot.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Img\v2_sfmu60.ico" />
+    <Resource Include="Resources\Img\v2_sfmu60.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="MainPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Resources\Data\defaultLP.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\default.bs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="MainPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+</Project>

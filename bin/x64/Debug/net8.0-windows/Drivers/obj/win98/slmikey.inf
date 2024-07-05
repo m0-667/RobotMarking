@@ -1,0 +1,60 @@
+;
+; File Name:
+;		slmikey.inf
+;
+; Abstract:
+;		Senselock Mikey Smart card driver information file
+;
+; Environment:
+;		kernel mode only
+;
+; Notes:
+;
+; Author:
+;		nianll
+;
+; Date:
+;		8/6/2004
+;
+; Revision History:
+;
+;
+
+[Version] 
+Signature = "$Windows NT$"
+Class=USB
+ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+Provider=%Senselock%
+LayoutFile=layout.inf
+DriverVer= 12/21/2004, 2.40.0.0
+
+[DestinationDirs]
+Sense4v2.Files.x86 = 10,System32\Drivers
+
+[Sense4v2.Files.x86]
+Sense4v2.sys
+
+[Manufacturer] 
+%Senselock%=Senselock
+
+[Senselock]
+%Sense4v2Desc%=Sense4v2_Inst, USB\VID_0471&PID_485D
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Windows 98
+
+[Sense4v2_Inst]
+CopyFiles = Sense4v2.Files.x86
+AddReg = Sense4v2.AddReg
+
+[Sense4v2.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,Sense4v2.sys
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; strings
+
+[Strings] 
+Senselock= "Beijing Senselock Corp."
+Sense4v2Desc= "Senselock SenseIV v2.x"
+

@@ -1,0 +1,161 @@
+;
+; File Name:
+;		slmikey.inf
+;
+; Abstract:
+;		Senselock Mikey Smart card driver information file
+;
+; Environment:
+;		kernel mode only
+;
+; Notes:
+;
+; Author:
+;		nianll
+;
+; Date:
+;		8/6/2004
+;
+; Revision History:
+;
+;
+
+[Version] 
+Signature = "$Windows NT$"
+Class=SmartCardReader
+ClassGUID={50DD5230-BA8A-11D1-BF5D-0000F805F530}
+Provider=%Senselock%
+CatalogFile=Mikey.cat
+DriverVer= 12/21/2004, 2.40.0.0
+
+[DestinationDirs]
+Sense4v2.Files.x86 = 10,System32\Drivers
+Sense4v2.Files.NTx86 = 10,System32\Drivers
+slvReader.File.x86 = 10,System32\Drivers
+slvReader.File.NTx86 = 10,System32\Drivers
+slvbus.File.x86 = 10,System32\Drivers
+slvBus.File.NTx86 = 10,System32\Drivers
+
+[Sense4v2.Files.x86]
+Sense4v2.sys
+
+[Sense4v2.Files.NTx86]
+sense4v2.sys,,,%COPY_FLAG_NOSKIP%
+
+[slvReader.File.x86]
+slvreader.sys
+
+[slvReader.File.NTx86]
+slvreader.sys,,,%COPY_FLAG_NOSKIP%
+
+[slvBus.File.x86]
+slvbus.sys
+
+[slvBus.File.NTx86]
+slvbus.sys,,,%COPY_FLAG_NOSKIP%
+
+
+[SourceDisksNames.x86]
+1=%SenseDriverDisk%
+
+[SourceDisksFiles.x86]
+sense4v2.sys=1,,
+slvreader.sys=1,,
+slvbus.sys=1,,
+
+
+[Manufacturer] 
+%Senselock%=Senselock
+
+[Senselock]
+%Sense4v2Desc%=Sense4v2_Inst, USB\VID_0471&PID_485D
+%SenseVReaderDesc%=SenseVReader_Inst, Sense\Reader
+%SenseVBusDesc%=SenseVBus_Inst, root\Sensebus
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Windows2000, Windows XP, Windows 2003
+; sense4v2 install section
+[Sense4v2_Inst.NTx86]
+CopyFiles = Sense4v2.Files.NTx86,slvReader.File.NTx86,slvBus.File.NTx86
+
+[Sense4v2_Inst.NTx86.Services] 
+AddService = sense4v2,0x00000002,Sense4v2_Service_Inst.NTx86,
+
+[Sense4v2_Service_Inst.NTx86]
+DisplayName = %Sense4ServDesc%
+ServiceType = %SERVICE_KERNEL_DRIVER%
+StartType = %SERVICE_DEMAND_START%
+ErrorControl = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %10%\System32\Drivers\sense4v2.sys
+
+; slvreader install section
+[SenseVReader_Inst.NTx86]
+CopyFiles = Sense4v2.Files.NTx86,slvReader.File.NTx86,slvBus.File.NTx86
+
+[SenseVReader_Inst.NTx86.Services]
+AddService = slvreader,0x00000002,SenseVReader_Service_Inst.NTx86,
+
+[SenseVReader_Service_Inst.NTx86]
+DisplayName = %SenseVReaderServDesc%
+ServiceType = %SERVICE_KERNEL_DRIVER%
+StartType = %SERVICE_DEMAND_START%
+ErrorControl = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %10%\System32\Drivers\slvreader.sys
+
+; slvbus install section
+[SenseVBus_Inst.NTx86]
+CopyFiles = Sense4v2.Files.NTx86,slvReader.File.NTx86,slvBus.File.NTx86
+
+[SenseVBus_Inst.NTx86.Services]
+AddService = slvbus,0x00000002,SenseVBus_Service_Inst.NTx86,
+
+[SenseVBus_Service_Inst.NTx86]
+DisplayName = %SenseVbusServDesc%
+ServiceType = %SERVICE_KERNEL_DRIVER%
+StartType = %SERVICE_SYSTEM_START%
+ErrorControl = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %10%\System32\Drivers\slvbus.sys
+AddReg = vReaderNum.AddReg
+
+[vReaderNum.AddReg]
+HKR,,vReaderNum,0x00010001,%ReaderNumInit%
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Windows 98
+
+[Sense4v2_Inst]
+CopyFiles = Sense4v2.Files.x86
+AddReg = Sense4v2.AddReg
+
+[Sense4v2.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,Sense4v2.sys
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; strings
+
+[Strings] 
+Senselock= "Beijing Senselock Corp."
+SenseDriverDisk= "Senselock SenseIV v2.x Install"
+Sense4v2Desc= "Senselock SenseIV v2.x"
+Sense4ServDesc= "Senselock SenseIV v2.x Service"
+SenseVReaderDesc= "Senselock Virtual Smartcard Reader"
+SenseVReaderServDesc= "Senselock Virtual Smartcard Reader Service"
+SenseVBusDesc= "Senselock Virtual Smartcard Enumerater"
+SenseVBusServDesc= "Senselock Virtual Smartcard Enumerater Service"
+
+SERVICE_BOOT_START = 0x0
+SERVICE_SYSTEM_START = 0x1
+SERVICE_AUTO_START = 0x2
+SERVICE_DEMAND_START = 0x3
+SERVICE_DISABLED = 0x4
+
+SERVICE_KERNEL_DRIVER = 0x1
+SERVICE_ERROR_IGNORE = 0x0
+SERVICE_ERROR_NORMAL = 0x1
+SERVICE_ERROR_SEVERE = 0x2
+SERVICE_ERROR_CRITICAL = 0x3
+
+ReaderNumInit = 0x01
+
+COPY_FLAG_NOSKIP = 0x2

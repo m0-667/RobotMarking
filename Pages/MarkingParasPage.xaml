@@ -1,0 +1,96 @@
+﻿<Page x:Class="RobotMarking.Pages.MarkingParasPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RobotMarking.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="310" d:DesignWidth="300"
+      Title="MarkingParas" Background="#ffffff">
+
+    <Grid>
+        <WrapPanel Orientation="Horizontal">
+            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200">
+                <Label>打标参数</Label>
+            </WrapPanel>
+            <WrapPanel Orientation="Horizontal" Width="200" HorizontalAlignment="Left" Margin="14,0,0,0" ItemWidth="60">
+                <Button Name="NormalBtn" Click="Normal_Click" Content="通用" HorizontalAlignment="Left"  VerticalAlignment="Top" Style ="{StaticResource dgButton}" Template="{StaticResource  buttonTemplate}" FontSize="15" Width="50"/>
+                <Button Name="AdvanceBtn" Click="Advance_Click" Content="高级" HorizontalAlignment="Left"  VerticalAlignment="Top" Style ="{StaticResource dgButton}" Template="{StaticResource buttonTemplate}" FontSize="15" Width="50"/>
+            </WrapPanel>
+            <WrapPanel Name="Normal" Margin="14,5,0,0" Orientation="Vertical" Visibility="Collapsed">
+                <WrapPanel Orientation="Horizontal">
+                    <Label BorderBrush="#d8d8d8" BorderThickness="1" Width="180">打印次数</Label>
+                    <TextBox Name="nCount" Text="" BorderBrush="#d8d8d8" BorderThickness="1" TextAlignment="Left" VerticalContentAlignment="Center" Width="95"></TextBox>
+                </WrapPanel>
+                <WrapPanel Orientation="Horizontal">
+                    <Label BorderBrush="#d8d8d8" BorderThickness="1" Width="180">打标速度(mm/s)</Label>
+                    <TextBox Name="dbMarkV" Text="500.000" BorderBrush="#d8d8d8" BorderThickness="1" TextAlignment="Left" VerticalContentAlignment="Center" Width="95"></TextBox>
+                </WrapPanel>
+                <WrapPanel Orientation="Horizontal">
+                    <Label BorderBrush="#d8d8d8" BorderThickness="1" Width="180">空跳速度(mm/s)</Label>
+                    <TextBox Name="dbJumpV" Text="1000.000" BorderBrush="#d8d8d8" BorderThickness="1" TextAlignment="Left" VerticalContentAlignment="Center" Width="95"></TextBox>
+                </WrapPanel>
+                <WrapPanel Orientation="Horizontal">
+                    <Label BorderBrush="#d8d8d8" BorderThickness="1" Width="180">Q频(KHz)</Label>
+                    <TextBox Name="dbQFre" Text="20.000" BorderBrush="#d8d8d8" BorderThickness="1" TextAlignment="Left" VerticalContentAlignment="Center" Width="95"></TextBox>
+                </WrapPanel>
+                <WrapPanel Orientation="Horizontal">
+                    <Label BorderBrush="#d8d8d8" BorderThickness="1" Width="180">功率(%)</Label>
+                    <TextBox Name="dbPowerR" Text="50.000" BorderBrush="#d8d8d8" BorderThickness="1" TextAlignment="Left" VerticalContentAlignment="Center" Width="95"></TextBox>
+                </WrapPanel>
+                <WrapPanel Orientation="Horizontal">
+                    <Label BorderBrush="#d8d8d8" BorderThickness="1" Width="180">层延时(us)</Label>
+                    <TextBox Text="1000" BorderBrush="#d8d8d8" BorderThickness="1" TextAlignment="Left" VerticalContentAlignment="Center" Width="95"></TextBox>
+                </WrapPanel>
+                <WrapPanel Orientation="Horizontal">
+                    <Label BorderBrush="#d8d8d8" BorderThickness="1" Width="180">打标重量系数</Label>
+                    <TextBox Name="nLayerDelay" Text="75" BorderBrush="#d8d8d8" BorderThickness="1" TextAlignment="Left" VerticalContentAlignment="Center" Width="95"></TextBox>
+                </WrapPanel>
+                <WrapPanel Orientation="Horizontal" ItemHeight="27">
+                    <Label BorderBrush="#d8d8d8" BorderThickness="1" Width="180"></Label>
+                    <TextBox Text="" BorderBrush="#d8d8d8" BorderThickness="1" TextAlignment="Left" VerticalContentAlignment="Center" Width="95"></TextBox>
+                </WrapPanel>
+            </WrapPanel>
+            <WrapPanel Name="Advance" Margin="14,5,0,0" Orientation="Vertical" Visibility="Visible">
+                <WrapPanel Orientation="Horizontal">
+                    <Label BorderBrush="#d8d8d8" BorderThickness="1" Width="180">激光模式</Label>
+                    <TextBox Name="nWaveForm" Text="8" BorderBrush="#d8d8d8" BorderThickness="1" TextAlignment="Left" VerticalContentAlignment="Center" Width="95"></TextBox>
+                </WrapPanel>
+                <WrapPanel Orientation="Horizontal">
+                    <Label BorderBrush="#d8d8d8" BorderThickness="1" Width="180">激光脉宽(ns)</Label>
+                    <TextBox Name="nLaserPulse" Text="0" BorderBrush="#d8d8d8" BorderThickness="1" TextAlignment="Left" VerticalContentAlignment="Center" Width="95"></TextBox>
+                </WrapPanel>
+                <WrapPanel Orientation="Horizontal">
+                    <Label BorderBrush="#d8d8d8" BorderThickness="1" Width="180">维持功率(%)</Label>
+                    <TextBox Name="dbPower" Text="50.000" BorderBrush="#d8d8d8" BorderThickness="1" TextAlignment="Left" VerticalContentAlignment="Center" Width="95"></TextBox>
+                </WrapPanel>
+                <WrapPanel Orientation="Horizontal">
+                    <Label BorderBrush="#d8d8d8" BorderThickness="1" Width="180">激光开延时(us)</Label>
+                    <TextBox Name="nLaserOnDelay" Text="100" BorderBrush="#d8d8d8" BorderThickness="1" TextAlignment="Left" VerticalContentAlignment="Center" Width="95"></TextBox>
+                </WrapPanel>
+                <WrapPanel Orientation="Horizontal">
+                    <Label BorderBrush="#d8d8d8" BorderThickness="1" Width="180">激光关延时(us)</Label>
+                    <TextBox Name="nLaserOffDelay" Text="100" BorderBrush="#d8d8d8" BorderThickness="1" TextAlignment="Left" VerticalContentAlignment="Center" Width="95"></TextBox>
+                </WrapPanel>
+                <WrapPanel Orientation="Horizontal">
+                    <Label BorderBrush="#d8d8d8" BorderThickness="1" Width="180">跳转延时(us)</Label>
+                    <TextBox Name="nJumpDelay" Text="300" BorderBrush="#d8d8d8" BorderThickness="1" TextAlignment="Left" VerticalContentAlignment="Center" Width="95"></TextBox>
+                </WrapPanel>
+                <WrapPanel Orientation="Horizontal">
+                    <Label BorderBrush="#d8d8d8" BorderThickness="1" Width="180">拐弯延时(us)</Label>
+                    <TextBox Name="nRoundDelay" Text="10" BorderBrush="#d8d8d8" BorderThickness="1" TextAlignment="Left" VerticalContentAlignment="Center" Width="95"></TextBox>
+                </WrapPanel>
+                <WrapPanel Orientation="Horizontal">
+                    <Label BorderBrush="#d8d8d8" BorderThickness="1" Width="180">走笔延时(us)</Label>
+                    <TextBox Name="nMoveLineDelay" Text="100" BorderBrush="#d8d8d8" BorderThickness="1" TextAlignment="Left" VerticalContentAlignment="Center" Width="95"></TextBox>
+                </WrapPanel>
+            </WrapPanel>
+            <WrapPanel Orientation="Horizontal" Width="200" HorizontalAlignment="Left" Margin="14,5,0,0" ItemWidth="65">
+                <Button Click="Default_Click" Content="默认值" HorizontalAlignment="Left"  VerticalAlignment="Top" Style ="{StaticResource dgButton}" Template="{StaticResource  buttonTemplate}" FontSize="15" Width="55"/>
+                <Button Click="SaveAs_Click" Content="另存为" HorizontalAlignment="Left"  VerticalAlignment="Top" Style ="{StaticResource dgButton}" Template="{StaticResource buttonTemplate}" FontSize="15" Width="55"/>
+                <Button Click="Del_Click" Content="删除" HorizontalAlignment="Left"  VerticalAlignment="Top" Style ="{StaticResource dgButton}" Template="{StaticResource buttonTemplate}" FontSize="15" Width="55"/>
+            </WrapPanel>
+        </WrapPanel>
+    </Grid>
+
+</Page>

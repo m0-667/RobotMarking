@@ -1,0 +1,55 @@
+﻿<Page x:Class="RobotMarking.Pages.ObjPropertyPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RobotMarking.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="300"
+      Title="ObjPropertyPage" Background="#ffffff">
+
+    <Grid>
+        <WrapPanel Orientation="Horizontal">
+            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200">
+                <Label>属性(编辑)</Label>
+            </WrapPanel>
+            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="300">
+                <WrapPanel Orientation="Vertical" Width="200">
+                    <WrapPanel Width="200" Height="83" Orientation="Horizontal">
+                        <Label FontSize="12" Width="200">文本</Label>
+                        <TextBox TextWrapping="WrapWithOverflow"  Text="请输入" Width="195" Height="50" FontSize="12" Margin="5,0,0,0"></TextBox>
+                    </WrapPanel>
+                    <WrapPanel Orientation="Vertical" ItemWidth="195" ItemHeight="25" Margin="5,0,0,0">
+                        <WrapPanel Orientation="Horizontal">
+                            <Label BorderBrush="#d8d8d8" BorderThickness="1" Width="35"></Label>
+                            <Label   BorderBrush="#d8d8d8" BorderThickness="1"  Width="80">位置</Label>
+                            <Label   BorderBrush="#d8d8d8" BorderThickness="1"  Width="80">尺寸(mm)</Label>
+                        </WrapPanel>
+                        <WrapPanel Orientation="Horizontal">
+                            <Label BorderBrush="#d8d8d8" BorderThickness="1" Width="35" HorizontalContentAlignment="Center">X</Label>
+                            <TextBox Name="posX" Text="75" BorderBrush="#d8d8d8" BorderThickness="1" TextAlignment="Left" VerticalContentAlignment="Center" Width="80"></TextBox>
+                            <TextBox Name="posY" Text="75" BorderBrush="#d8d8d8" BorderThickness="1" TextAlignment="Left" VerticalContentAlignment="Center" Width="80"></TextBox>
+                        </WrapPanel>
+                        <WrapPanel Orientation="Horizontal">
+                            <Label BorderBrush="#d8d8d8" BorderThickness="1" Width="35" HorizontalContentAlignment="Center">Y</Label>
+                            <TextBox Name="proWidth" Text="75" BorderBrush="#d8d8d8" BorderThickness="1" TextAlignment="Left" VerticalContentAlignment="Center" Width="80"></TextBox>
+                            <TextBox Name="proHeight" Text="75" BorderBrush="#d8d8d8" BorderThickness="1" TextAlignment="Left" VerticalContentAlignment="Center" Width="80"></TextBox>
+                        </WrapPanel>
+                    </WrapPanel>
+                    <WrapPanel Width="250">
+                        <Frame Name="Property3"></Frame>
+                    </WrapPanel>
+                </WrapPanel>
+                <WrapPanel Orientation="Vertical" Margin="20,0,0,0" ItemHeight="38">
+                    <Button Content="对齐" Style ="{StaticResource dgButton}" Template="{StaticResource  buttonTemplate}" FontSize="12" Width="55" Height="20" Click="AlignBtn"></Button>
+                    <Button Content="应用" Style ="{StaticResource dgButton}" Template="{StaticResource  buttonTemplate}" FontSize="12" Width="55" Height="20" Click="ApplyBtn"></Button>
+                </WrapPanel>
+
+            </WrapPanel>
+
+
+        </WrapPanel>
+
+
+    </Grid>
+</Page>

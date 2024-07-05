@@ -1,0 +1,163 @@
+; Installation INF for the Cypress Generic USB Driver for OS unknown
+; Processor support for OS unknown platforms.
+;
+; (c) Copyright 2012 Cypress Semiconductor Corporation
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=USB
+ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+provider=%HANUSB3_Provider%
+CatalogFile=HANUSB3.cat
+DriverVer=02/03/2023,0.2.0.3
+
+[SourceDisksNames]
+1=%HANUSB3_Install%,,,
+
+[SourceDisksFiles]
+HANUSB3.sys = 1
+WdfCoInstaller01009.dll=1 ; make sure the number matches with SourceDisksNames
+
+[DestinationDirs]
+HANUSB3.Files.Ext = 10,System32\Drivers
+CoInstaller_CopyFiles = 11
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Manufacturer]
+%HANUSB3_Provider%=Device,NT,NTx86,NTamd64,NTARM64
+
+;for all platforms
+[Device.NT]
+;%VID_XXXX&PID_XXXX.DeviceDesc%=HANUSB3, USB\VID_XXXX&PID_XXXX
+%VID_0547&PID_1002.DeviceDesc%=HANUSB3, USB\VID_0547&PID_1002
+
+;for x86 platforms
+[Device.NTx86]
+;%VID_XXXX&PID_XXXX.DeviceDesc%=HANUSB3, USB\VID_XXXX&PID_XXXX
+%VID_0547&PID_1002.DeviceDesc%=HANUSB3, USB\VID_0547&PID_1002
+
+;for x64 platforms
+[Device.NTamd64]
+;%VID_XXXX&PID_XXXX.DeviceDesc%=HANUSB3, USB\VID_XXXX&PID_XXXX
+%VID_0547&PID_1002.DeviceDesc%=HANUSB3, USB\VID_0547&PID_1002
+
+[Device.NTARM64]
+;%VID_XXXX&PID_XXXX.DeviceDesc%=HANUSB3, USB\VID_XXXX&PID_XXXX
+%VID_0547&PID_1002.DeviceDesc%=HANUSB3, USB\VID_0547&PID_1002
+
+[HANUSB3.NT]
+CopyFiles=HANUSB3.Files.Ext
+AddReg=HANUSB3.AddReg
+
+[HANUSB3.NT.HW]
+AddReg=HANUSB3.AddReg.Guid
+
+[HANUSB3.NT.Services]
+Addservice = HANUSB3,2,HANUSB3.AddService
+
+
+[HANUSB3.NTx86]
+CopyFiles=HANUSB3.Files.Ext
+AddReg=HANUSB3.AddReg
+
+[HANUSB3.NTx86.HW]
+AddReg=HANUSB3.AddReg.Guid
+
+[HANUSB3.NTx86.Services]
+Addservice = HANUSB3,2,HANUSB3.AddService
+
+[HANUSB3.NTamd64]
+CopyFiles=HANUSB3.Files.Ext
+AddReg=HANUSB3.AddReg
+
+[HANUSB3.NTARM64]
+CopyFiles=HANUSB3.Files.Ext
+AddReg=HANUSB3.AddReg
+
+[HANUSB3.NTamd64.HW]
+AddReg=HANUSB3.AddReg.Guid
+
+[HANUSB3.NTARM64.HW]
+AddReg=HANUSB3.AddReg.Guid
+
+[HANUSB3.NTamd64.Services]
+Addservice = HANUSB3,2,HANUSB3.AddService
+
+[HANUSB3.NTARM64.Services]
+Addservice = HANUSB3,2,HANUSB3.AddService
+
+
+[HANUSB3.AddReg]
+; Deprecating - do not use in new apps to identify a HANUSB3 driver
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,HANUSB3.sys
+; You may optionally include a check for DriverBase in your application to check for a HANUSB3 driver
+HKR,,DriverBase,,HANUSB3.sys
+HKR,"Parameters","MaximumTransferSize",0x10001,65536
+HKR,"Parameters","DebugLevel",0x10001,2
+HKR,,FriendlyName,,%HANUSB3_Description%
+
+[HANUSB3.AddService]
+DisplayName    = %HANUSB3_Description%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\System32\Drivers\HANUSB3.sys
+AddReg         = HANUSB3.AddReg
+LoadOrderGroup = Base
+
+[HANUSB3.Files.Ext]
+HANUSB3.sys
+
+[HANUSB3.AddReg.Guid]
+HKR,,DriverGUID,,%HANUSB3.GUID%
+
+;-------------- WDF Coinstaller installation
+
+
+[HANUSB3.NTamd64.CoInstallers]
+AddReg=CoInstaller_AddReg
+CopyFiles=CoInstaller_CopyFiles
+
+[HANUSB3.NTARM64.CoInstallers]
+AddReg=CoInstaller_AddReg
+CopyFiles=CoInstaller_CopyFiles
+
+[HANUSB3.NTx86.CoInstallers]
+AddReg=CoInstaller_AddReg
+CopyFiles=CoInstaller_CopyFiles
+
+[CoInstaller_CopyFiles]
+WdfCoInstaller01009.dll
+
+[CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller01009.dll,WdfCoInstaller"
+
+[HANUSB3.NTamd64.Wdf]
+KmdfService = HANUSB3, HANUSB3_wdfsect
+
+[HANUSB3.NTARM64.Wdf]
+KmdfService = HANUSB3, HANUSB3_wdfsect
+
+[HANUSB3.NTx86.Wdf]
+KmdfService = HANUSB3, HANUSB3_wdfsect
+
+[HANUSB3_wdfsect]
+KmdfLibraryVersion = 1.9
+
+
+[Strings]
+HANUSB3_Provider    = "HAN'S LASER"
+HANUSB3_Company     = "HAN'S LASER CORP. LTD"
+HANUSB3_Description = "Emcc Marking Card  USB  Driver"
+HANUSB3_DisplayName = "Emcc Marking Card Driver"
+HANUSB3_Install     = "EMCC Driver Installation Disk"
+VID_XXXX&PID_XXXX.DeviceDesc="Cypress USB3.0 Generic Driver"
+VID_0547&PID_1002.DeviceDesc="EMCC Marking Card"
+HANUSB3.GUID="{AE18AA60-7F6A-11d4-97DD-00010229B959}"
+HANUSB3_Unused      = "."
+
+

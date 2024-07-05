@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>E:\bak\develop\manual\xueGe\TestHans\RobotMarking\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="AlarmPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MarkingPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MyImageTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Pages\CirclePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\CodePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\LinePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\MarkingParasPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\ObjListPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\ObjPropertyPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\RectPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\SelectPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\TextPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="RobotPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="AlarmPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MarkingPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\CirclePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\CodePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\LinePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\MarkingParasPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\ObjListPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\ObjPropertyPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\RectPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\SelectPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\TextPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\style.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RobotPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

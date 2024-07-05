@@ -1,0 +1,102 @@
+﻿
+<Page x:Class="RobotMarking.MainPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        xmlns:Controls="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:local="clr-namespace:RobotMarking"
+        mc:Ignorable="d" 
+        d:DesignHeight="450" d:DesignWidth="800"
+        Title="UniformGrid 示例" ShowsNavigationUI="False">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="6*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="2.5" BorderBrush="Black" BorderThickness="1" CornerRadius="9">
+            <Controls:UniformGrid Rows="1" Columns="8">
+                <Button Content="单步运行" Width="50" Height="20" />
+                <Button Content="自动运行" Width="50" Height="20" />
+                <Button Content="外部自动" Width="50" Height="20" />
+                <Button Content="停止" Width="50" Height="20" />
+                <TextBox Text="速度" Margin="15" BorderThickness="0" Block.TextAlignment="Center"/>
+                <Slider x:Name="Slider1" Minimum="0" Maximum="100" Value="50" LargeChange="10" SmallChange="1" Orientation="Horizontal" Margin="10" />
+                <TextBlock x:Name="TextBlock1" Width="100" Height="25" Margin="5" Text="{Binding Path=Value, ElementName=Slider1}">
+                </TextBlock>
+
+
+            </Controls:UniformGrid>
+
+        </Border>
+
+
+
+        <Border Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Margin="2.5" BorderBrush="Black" BorderThickness="1" CornerRadius="9">
+            <Controls:UniformGrid Rows="7" Columns="1">
+                <TextBox Text="Program"  BorderThickness="0" FontSize="20px"/>
+                <DataGrid x:Name="dgInsertBar" IsReadOnly="False" AutoGenerateColumns="False" Background="white"
+                  CanUserResizeColumns="False" CanUserResizeRows="False"  SelectionMode="Single" 
+                  CanUserReorderColumns="False" AlternationCount="2"  RowHeaderWidth="0" CanUserAddRows="False"
+                        Margin="0,10,1,-26" Height="255" VerticalAlignment="Top" MouseUp="dgInsertBar_MouseUp">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="  " Binding="{Binding Num}" Width="50"></DataGridTextColumn>
+                        <DataGridTextColumn Header="机器人point" Binding="{Binding CommodityNo}" Width="120"></DataGridTextColumn>
+                        <DataGridTextColumn Header="打标内容" Binding="{Binding BarCode}" Width="140"></DataGridTextColumn>
+                        <DataGridTextColumn Header="结束指令" Binding="{Binding BarCode}" Width="140"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Controls:UniformGrid>
+        </Border>
+
+
+
+
+        <Border Grid.Row="2" Grid.Column="2" Margin="2.5" BorderBrush="Black" BorderThickness="1" CornerRadius="9">
+            <Controls:UniformGrid Rows="4" Columns="2">
+                <TextBox Text="系统状态"  BorderThickness="0" FontSize="8px" HorizontalAlignment="Center"/>
+                <TextBox Text="      "  BorderThickness="0" FontSize="8px"/>
+                <TextBox Text="PC IP"  BorderThickness="0" FontSize="8px" />
+                <ComboBox  Name="combo2" IsDropDownOpen="False" VerticalAlignment="Top" Width="81" Height="22">
+                    <ComboBoxItem Content="显示" IsSelected="True" Background="#FF26D365"/>
+                    <ComboBoxItem Content="不显示"/>
+                </ComboBox>
+                <TextBox Text="打标机 IP"  BorderThickness="0" FontSize="8px"/>
+                <ComboBox  Name="combo1" IsDropDownOpen="False" VerticalAlignment="Top" Width="81" Height="22" >
+                    <ComboBoxItem Content="显示" IsSelected="True" Background="#FF26D365"/>
+                    <ComboBoxItem Content="不显示"/>
+                </ComboBox>
+                <TextBox Text="打标机状态"  BorderThickness="0" FontSize="8px"/>
+                <ComboBox  Name="combo3" IsDropDownOpen="False" VerticalAlignment="Top" Width="81" Height="22">
+                    <ComboBoxItem Content="显示" IsSelected="True" Background="#FF26D365"/>
+                    <ComboBoxItem Content="不显示"/>
+                </ComboBox>
+            </Controls:UniformGrid>
+        </Border>
+
+
+        <Border Grid.Row="1" Grid.Column="2" Grid.RowSpan="1" Margin="2.5" BorderBrush="Black" BorderThickness="1" CornerRadius="9">
+            <Controls:UniformGrid Rows="7" Columns="1">
+                <ComboBox  Name="hecbm" IsDropDownOpen="False" VerticalAlignment="Top" Width="81" Height="22">
+                    <ComboBoxItem Content="请选择" IsSelected="True" Background="#FF26D365"/>
+                    <ComboBoxItem Content="亚洲"/>
+                    <ComboBoxItem Content="非洲"/>
+                    <ComboBoxItem Content="欧洲"/>
+                </ComboBox>
+                <Button Content="长按到达" Width="50" Height="20" />
+                <Button Content="删除行" Width="50" Height="20" />
+                <Button Content="添加行" Width="50" Height="20" />
+                <Button Content="保存程序" Width="50" Height="20" />
+                <Button Content="删除程序" Width="50" Height="20" />
+                <Button Content="添加程序" Width="50" Height="20" />
+            </Controls:UniformGrid>
+        </Border>
+    </Grid>
+</Page>
